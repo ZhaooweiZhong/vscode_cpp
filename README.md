@@ -1,6 +1,6 @@
-#vs code c++ 环境配置
+# vs code c++ 环境配置
 >zzw的头发又少了……
-##前言
+## 前言
 <font size = 4 face="楷体">
 &#160;&#160;&#160;&#160;vs code是一个开源的好东西，我已经把几乎所有的东西都开始用vs code来写了，比如perl，比如c++，比如python，再比如写出这篇文字的markdown等等……</br>
 </font>
@@ -9,7 +9,7 @@
 </font>
 
 ![久违的helloworld](久违的hello_world.png "久违的hello world")
-##launch.json的重写
+## launch.json的重写
 <font size = 4 face="楷体">
 &#160;&#160;&#160;&#160;在这段程序中主要参考了网上的注释以及代码思路来进行的编写.参考的链接为：
 
@@ -46,14 +46,14 @@
 ```
 </fonk>
 
-##task.json的重写
+## task.json的重写
 <font size = 4 face="楷体">
 &#160;&#160;&#160;&#160;task.json主要是预编译的作用。提前写好本来要在cmd中写的编译语句，存好，等文件来了就自动输进去编译。本段代码的注释参考链接为：
 
 <https://blog.csdn.net/feynman1999/article/details/79437524>
 &#160;&#160;&#160;&#160;主要的需要更改的注意的内容：
-1.  使用的编译语句命令需要和自己选择的command相匹配。
-2.  注意将args里的关键词分开引用，不然输出的会是一串字符串，比如
+-1.  使用的编译语句命令需要和自己选择的command相匹配。
+-2.  注意将args里的关键词分开引用，不然输出的会是一串字符串，比如
 ```javascript
 "-o",
 "${fileDirname}/${fileBasenameNoExtension}.exe",
@@ -63,7 +63,7 @@
 "-o ${fileDirname}/${fileBasenameNoExtension}.exe",
 ```
 &#160;&#160;&#160;&#160;有的人好像也不会报错，但是我这边就会报错，在自动进行的编译中对电脑输入的指令为：带双引号的 "-o \${fileDirname}/${fileBasenameNoExtension}.exe" 。
-3.  暂时想不起来，以后再更~
+-3.  暂时想不起来，以后再更~
 &#160;&#160;&#160;&#160;代码在此，尽管拿去：
 
 ```javascript
@@ -115,8 +115,8 @@
         }
 ```
 </fonk>
-##附加内容
-1. launch与attach区别 参考链接为：
+## 附加内容
+-1. launch与attach区别 参考链接为：
     <https://www.cnblogs.com/y896926473/articles/5657434.html>
     launch实际上是启动一个node执行指定代码，同时可以在vscode里面打断点调试。以上述配置为例，实际执行的命令为
     ```
@@ -124,6 +124,6 @@
     ```
     端口号是随机的，vscode能打断点调试是因为他内部监听了这个端口，并与node通讯实现调试。
     attach就是监听的任务。例如 其他程序 启动了一个node应用并使用了—debug-brk参数开启了5858端口使程序暂停在了第一行。此时启动attach任务，就可以监听到这个端口，并在 vscode里面 调试这个node应用了。
-2. mingw使用原因很简单，在Linux与widows上兼容性好。MinGW，是Minimalist GNUfor Windows的缩写。它是一个可自由使用和自由发布的Windows特定头文件和使用GNU工具集导入库的集合，允许你在GNU/Linux和Windows平台生成本地的Windows程序而不需要第三方C运行时（C Runtime）库。MinGW 是一组包含文件和端口库，其功能是允许控制台模式的程序使用微软的标准C运行时（C Runtime）库（MSVCRT.DLL）,该库在所有的 NT OS 上有效，在所有的 Windows 95发行版以上的 Windows OS 有效，使用基本运行时，你可以使用 GCC 写控制台模式的符合美国标准化组织（ANSI）程序，可以使用微软提供的 C 运行时（C Runtime）扩展，与基本运行时相结合，就可以有充分的权利既使用 CRT（C Runtime）又使用 WindowsAPI功能。参考链接为[百度百科-mingw][1]。
+-2. mingw使用原因很简单，在Linux与widows上兼容性好。MinGW，是Minimalist GNUfor Windows的缩写。它是一个可自由使用和自由发布的Windows特定头文件和使用GNU工具集导入库的集合，允许你在GNU/Linux和Windows平台生成本地的Windows程序而不需要第三方C运行时（C Runtime）库。MinGW 是一组包含文件和端口库，其功能是允许控制台模式的程序使用微软的标准C运行时（C Runtime）库（MSVCRT.DLL）,该库在所有的 NT OS 上有效，在所有的 Windows 95发行版以上的 Windows OS 有效，使用基本运行时，你可以使用 GCC 写控制台模式的符合美国标准化组织（ANSI）程序，可以使用微软提供的 C 运行时（C Runtime）扩展，与基本运行时相结合，就可以有充分的权利既使用 CRT（C Runtime）又使用 WindowsAPI功能。参考链接为[百度百科-mingw][1]。
 
 [1]:https://baike.baidu.com/item/mingw/1777782?fr=aladdin
